@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchGame } from '../../actions';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   state = {
     searchTerm: '',
   }
@@ -13,13 +16,16 @@ export default class SearchBar extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
+    this.props.fetchGame(this.state.searchTerm);
+    this.setState({
+      searchTerm: ''
+    });
   }
 
   render() {
     return(
       <form onSubmit={this.onFormSubmit} className="container">
-          <input
-            placeholder="Search for Games"
+          <input placeholder="Search for Games"
             type="text"
             value={this.state.searchTerm}
             onChange={this.onInputChange}
@@ -30,3 +36,8 @@ export default class SearchBar extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchGame }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);

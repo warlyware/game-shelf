@@ -9,7 +9,7 @@ import './index.css';
 import App from './App';
 import reducers from './reducers';
 
-const createStore = applyMiddleware(ReduxPromise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 const store = createStore(reducers);
 
 ReactDOM.render(

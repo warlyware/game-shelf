@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import actions from './actions.constant';
-import API_KEY from '../../API_KEY';
+import API_KEY from '../API_KEY';
 
 const giantBombApiUrl = `
   //www.giantbomb.com/api/search/?api_key=${API_KEY}&format=JSON
