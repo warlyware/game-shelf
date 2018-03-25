@@ -4,12 +4,14 @@ import './styles/skeleton.css';
 
 import './App.css';
 import SearchBar from './containers/SearchBar';
+import GameList from './containers/GameList';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <SearchBar />
+        <GameList />
       </div>
     );
   }
