@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './styles';
 
+import GameList from './containers/GameList';
 import SearchBar from './containers/SearchBar';
 import SearchList from './containers/SearchList';
 
@@ -15,7 +16,7 @@ class App extends Component {
             <SearchList />
           </div>
           <div className="nine columns">
-            <SearchList />
+            <GameList />
           </div>
         </div>
       </div>

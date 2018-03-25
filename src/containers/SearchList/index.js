@@ -16,7 +16,7 @@ class SearchList extends Component {
         <table>
           <thead>
             <tr>
-              <th>Game</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
