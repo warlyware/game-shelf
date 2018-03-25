@@ -1,11 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-
-import API_KEY from '../../API_KEY';
-
-const giantBombApiUrl = `
-  https://www.giantbomb.com/api/search/?api_key=${API_KEY}&format=JSON
-`;
 
 export default class SearchBar extends Component {
   state = {
@@ -20,12 +13,6 @@ export default class SearchBar extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
-    axios.get(`${giantBombApiUrl}&query=${this.state.searchTerm}`)
-    .then((data) => {
-      console.log(data);
-    }).catch((error) => {
-      console.error(error);
-    });
   }
 
   render() {
