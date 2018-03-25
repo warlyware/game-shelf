@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import actions from './actions.constant';
+import actions from '../constants/actions';
 import API_KEY from '../API_KEY';
 
 const giantBombApiUrl = `
