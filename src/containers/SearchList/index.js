@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class GameList extends Component {
+class SearchList extends Component {
   renderGame(game) {
-    console.log(game);
     return(
       <tr key={game.id}>
         <td>{game.name}</td>
@@ -18,9 +17,6 @@ class GameList extends Component {
           <thead>
             <tr>
               <th>Game</th>
-              <th>Stat 1</th>
-              <th>Stat 2</th>
-              <th>Stat 3</th>
             </tr>
           </thead>
           <tbody>
@@ -38,4 +34,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(GameList);
+export default connect(mapStateToProps)(SearchList);

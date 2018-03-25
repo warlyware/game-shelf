@@ -4,7 +4,7 @@ import './styles/skeleton.css';
 
 import './App.css';
 import SearchBar from './containers/SearchBar';
-import GameList from './containers/GameList';
+import SearchList from './containers/SearchList';
 
 class App extends Component {
   render() {
