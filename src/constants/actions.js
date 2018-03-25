@@ -1,3 +1,4 @@
 export default {
-  FETCH_GAME: 'FETCH_GAME'
+  SEARCH_FOR_GAME: 'SEARCH_FOR_GAME',
+  SAVE_GAME: 'SAVE_GAME'
 };
