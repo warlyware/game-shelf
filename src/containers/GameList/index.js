@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class GameList extends Component {
+class GameList extends Component {
+  renderGame(game) {
+    return(
+      <tr key={game.results[0].id}>
+        <td>{game.results[0].name}</td>
+      </tr>
+    );
+  }
+
   render() {
     return(
       <div className="container">
@@ -14,12 +23,18 @@ export default class GameList extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-
-            </tr>
+            {this.props.games.map(this.renderGame)}
           </tbody>
         </table>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    games: state.games
+  };
+}
+
+export default connect(mapStateToProps)(GameList);
