@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 
 class GameList extends Component {
   renderGame(game) {
+    console.log(game);
     return(
-      <tr key={game.results[0].id}>
-        <td>{game.results[0].name}</td>
+      <tr key={game.id}>
+        <td>{game.name}</td>
       </tr>
     );
   }
