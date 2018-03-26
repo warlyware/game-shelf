@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class GameList extends Component {
-  static defaultProps = {
-    savedGames: []
-  }
-
-  renderGame(game) {
+  renderGame = (game) => {
     return(
       <tr key={game.id}>
         <td>{game.name}</td>
@@ -25,7 +21,7 @@ class GameList extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.savedGames.map(this.renderGame)}
+          {this.props.savedGames.map(game =>this.renderGame(game))}
         </tbody>
       </table>
     </div>

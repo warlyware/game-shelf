@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { saveGame } from '../../actions';
 
 class SearchList extends Component {
+  static defaultProps = {
+    saveGame: () => {}
+  }
+
+  handleClick = (game) => {
+    console.log('click');
+    this.props.saveGame(game);
+  }
+
   renderGame(game) {
     return(
       <tr key={game.id}>
         <td>{game.name}</td>
+        <td><button onClick={() => this.handleClick(game)}>Add</button></td>
       </tr>
     );
   }
@@ -20,7 +33,11 @@ class SearchList extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.games.map(this.renderGame)}
+            {
+              this.props.search.length ?
+              this.props.search.map(result => this.renderGame(result)):
+              null
+            }
           </tbody>
         </table>
       </div>
@@ -30,8 +47,13 @@ class SearchList extends Component {
 
 function mapStateToProps(state) {
   return {
-    games: state.games
+    search: state.search
   };
 }
 
-export default connect(mapStateToProps)(SearchList);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ saveGame: saveGame }, dispatch);
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchList);
