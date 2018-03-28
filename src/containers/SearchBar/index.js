@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { searchForGame } from '../../actions';
 
 class SearchBar extends Component {
@@ -37,7 +36,7 @@ class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ searchForGame: searchForGame }, dispatch);
+  return { searchForGame: (searchTerm) => dispatch(searchForGame(searchTerm)) }
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar);
